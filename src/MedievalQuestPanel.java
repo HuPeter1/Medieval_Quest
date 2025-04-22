@@ -440,7 +440,7 @@ class MedievalQuestPanel extends JPanel implements MouseMotionListener, MouseLis
       g.drawString("Level: " + playerCom.getLvl(), 160, 180);
       g.drawString("Available Stat Points: " + playerCom.getStatPoints(), 160, 210);
       g.setFont(new Font("Times New Roman", Font.BOLD, 15));
-      g.drawString("Press Escape to Return to Main Menu", 200, 720);
+      g.drawString("Press Escape to Return to the Main Menu", 200, 720);
     }
     else if (screen == INTRO){ // main menu
       g.drawImage(platformingBack, 0, 0, null);
@@ -499,7 +499,7 @@ class MedievalQuestPanel extends JPanel implements MouseMotionListener, MouseLis
       g.setFont(new Font("Times New Roman", Font.BOLD, 25));
       g.drawString("Press ESCAPE to Continue", 235, 525);
     }
-    else{ // end/credits screen
+    else{ // credits screen
       g.setColor(Color.BLACK);
       g.fillRect(0,0,800,800);
       g.setColor(Color.WHITE);
