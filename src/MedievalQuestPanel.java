@@ -446,7 +446,7 @@ class MedievalQuestPanel extends JPanel implements MouseMotionListener, MouseLis
       g.drawImage(platformingBack, 0, 0, null);
       g.setColor(Color.WHITE);
       g.setFont(new Font("Times New Roman", Font.BOLD, 100));
-      g.drawString("Medieval Quest", 60, 150);
+      g.drawString("Medieval Quest", 30, 150);
       g.setFont(new Font("Times New Roman", Font.BOLD, 40));
       g.drawString("Click to Begin", 250, 500);
       g.setFont(new Font("Times New Roman", Font.BOLD, 20));
