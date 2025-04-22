@@ -1,7 +1,9 @@
 # [Medieval Quest](https://medievalquest.vercel.app/index.html)
 Tread carefully through the dangerous territory ruled by the treacherous King of the Ghosts to save the princess.
 
-A simple platformer with turn-based combat. Made in Java with Swing.
+A simple platformer with turn-based combat.
+
+Made in Java with Swing.
 
 Hosted on the web using [CheerpJ](https://cheerpj.com). However, runs slowly on the web.
 

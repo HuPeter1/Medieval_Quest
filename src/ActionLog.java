@@ -52,7 +52,7 @@ class ActionLog{
     LNode tmp = head;
     int i = 0;
 		
-    g.setColor(Color.BLACK);
+    g.setColor(Color.WHITE);
     g.setFont(new Font("Times New Roman", Font.BOLD, 15));
     while (tmp != null){
       g.drawString(tmp.getAction(), 280, 30 + i * 20);
