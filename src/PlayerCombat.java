@@ -3,27 +3,27 @@ import javax.swing.*;
 import java.util.*;
 import javax.imageio.ImageIO;
 
-//class for the player in the combat section (stats and actions)
+// class for the player in the combat section (stats and actions)
 class PlayerCombat{
-  private int level, experience, maxExperience, maxHealth, health, maxMana, mana, statPoints, left, right, up, down, space; //stats and controls
-  private int[] statValues, statIncreases; //statValues to store each stat and statIncreases to store how much the player is increasing each stat using stat points
-  public static final int ENDURANCE = 0, ENERGY = 1, POWER = 2, DEFENSE = 3, SPEED = 4; //stats
+  private int level, experience, maxExperience, maxHealth, health, maxMana, mana, statPoints, left, right, up, down, space; // stats and controls
+  private int[] statValues, statIncreases; // statValues to store each stat and statIncreases to store how much the player is increasing each stat using stat points
+  public static final int ENDURANCE = 0, ENERGY = 1, POWER = 2, DEFENSE = 3, SPEED = 4; // stats
   private static final Image playerImage;
-  public static final int ATTACK = 0, CHARGED_ATTACK = 1, SHIELD = 2, HEAL = 3, MISSED = -1, NOT_ENOUGH_MANA = -2; //combat actions
-  public static final int NOTHING = -1, LEFT = 0, RIGHT = 1, UP = 2, DOWN = 3, SELECT = 4; //controls
-  private boolean []keysHeld; //list to check which keys are being held
+  public static final int ATTACK = 0, CHARGED_ATTACK = 1, SHIELD = 2, HEAL = 3, MISSED = -1, NOT_ENOUGH_MANA = -2; // combat actions
+  public static final int NOTHING = -1, LEFT = 0, RIGHT = 1, UP = 2, DOWN = 3, SELECT = 4; // controls
+  private boolean []keysHeld; // list to check which keys are being held
 
   static {
     Image temp = null;
     try {
-      temp = ImageIO.read(PlayerCombat.class.getResourceAsStream("/Knight/Fighting.png"));
+      temp = ImageIO.read(PlayerCombat.class.getResourceAsStream("Knight/Fighting.png"));
     } catch (Exception e) {
       e.printStackTrace();
     }
     playerImage = temp;
   }
   
-  public PlayerCombat(int l, int r, int u, int d, int s){ //l for a key, r for d key, u for w key, d for s key, s for space
+  public PlayerCombat(int l, int r, int u, int d, int s){ // l for a key, r for d key, u for w key, d for s key, s for space
     statValues = new int[5];
     statIncreases = new int[5];
     level = statValues[ENDURANCE] = statValues[ENERGY] = statValues[POWER] = statValues[DEFENSE] = statValues[SPEED] = 5;
@@ -95,28 +95,28 @@ class PlayerCombat{
     }
   }
   
-  public void levelUp(){ //method for leveling up
+  public void levelUp(){ // method for leveling up
     level ++;
     experience -= maxExperience;
-    maxExperience = level * 4; //gets new experience amount needed to level up
+    maxExperience = level * 4; // gets new experience amount needed to level up
     statPoints += 5;
   }
   
-  public void increaseStat(int i){ //adds one to the list of how much you want to increase each stat for the specific stat
-    if (statPoints > 0){ //checks if there is a stat point available
+  public void increaseStat(int i){ // adds one to the list of how much you want to increase each stat for the specific stat
+    if (statPoints > 0){ // checks if there is a stat point available
       statPoints --;
       statIncreases[i] ++;
     }
   }
   
-  public void decreaseStat(int i){ //minuses one from the list of how much you want to increase each stat for the specific stat
-    if (statIncreases[i] > 0){ //can't go negative
+  public void decreaseStat(int i){ // minuses one from the list of how much you want to increase each stat for the specific stat
+    if (statIncreases[i] > 0){ // can't go negative
       statIncreases[i] --;
       statPoints ++;
     }
   }
   
-  public void updateStats(){ //adds the amount wanted to each stat
+  public void updateStats(){ // adds the amount wanted to each stat
     maxHealth += statIncreases[ENDURANCE] * 3;
     health += statIncreases[ENDURANCE] * 3;
     maxMana += statIncreases[ENERGY] * 2;
@@ -127,7 +127,7 @@ class PlayerCombat{
     Arrays.fill(statIncreases, 0);
   }
   
-  public int action(boolean []keys){ //returns player's actions during combat
+  public int action(boolean []keys){ // returns player's actions during combat
     if (keys[left] && !keysHeld[LEFT]){
       keysHeld[LEFT] = true;
       return LEFT;
@@ -146,7 +146,7 @@ class PlayerCombat{
     return NOTHING;
   }
   
-  public int menu(boolean []keys){ //returns player's actions on the pause menu
+  public int menu(boolean []keys){ // returns player's actions on the pause menu
     if (keys[left] && !keysHeld[LEFT]){
       keysHeld[LEFT] = true;
       return LEFT;
@@ -169,7 +169,7 @@ class PlayerCombat{
     return NOTHING;
   }
   
-  public void checkKeysHeld(boolean []keys){ //checks if each key is being held
+  public void checkKeysHeld(boolean []keys){ // checks if each key is being held
     if (keysHeld[LEFT]){
       if (!keys[left]){
         keysHeld[LEFT] = false;
@@ -197,7 +197,7 @@ class PlayerCombat{
     }
   }
   
-  public void draw(Graphics g){ //drawing the player and player's box in the combat section
+  public void draw(Graphics g){ // drawing the player and player's box in the combat section
     g.drawImage(playerImage, 185, 350, null);
     g.setColor(Color.GRAY);
     g.fillRect(485, 520, 250, 105);

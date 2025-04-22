@@ -1,11 +1,11 @@
 import java.awt.*;
 
-//class for buttons that are interacted with by using the keyboard (position, name, and cost if applicable)
+// class for buttons that are interacted with by using the keyboard (position, name, and cost if applicable)
 class Button{
   private int x, y, width, height, cost;
   private String name;
   
-  public Button(int xx, int yy, int w, int h, String n, int c){ //creates a button with dimensions, a name and a cost for using it
+  public Button(int xx, int yy, int w, int h, String n, int c){ // creates a button with dimensions, a name and a cost for using it
     x = xx;
     y = yy;
     width = w;
@@ -14,7 +14,7 @@ class Button{
     cost = c;
   }
 
- public Button(int xx, int yy, int w, int h, String n){ //creates a button with dimensions and a name
+ public Button(int xx, int yy, int w, int h, String n){ // creates a button with dimensions and a name
     x = xx;
     y = yy;
     width = w;
@@ -22,19 +22,19 @@ class Button{
     name = n;
   }
   
-  public static Button[] makeCombat(){ //returns a list of buttons for the combat section
+  public static Button[] makeCombat(){ // returns a list of buttons for the combat section
     Button []combatButtons = {new Button(95, 650, 145, 75, "Attack", 0), new Button(250, 650, 145, 75, "Charged Attack", 2),
                               new Button(405, 650, 145, 75, "Shield", 1), new Button(560, 650, 145, 75, "Heal", 3)};
     return combatButtons;
   }
 
- public static Button[] makeStat(){ //returns a list of buttons for the pause menu
+ public static Button[] makeStat(){ // returns a list of buttons for the pause menu
   Button []statButtons = {new Button(250, 255, 200, 50, "Endurance"), new Button(250, 315, 200, 50, "Energy"), new Button(250, 375, 200, 50, "Power"), new Button(250, 435, 200, 50, "Defense"), new Button(250, 495, 200, 50, "Speed")};
   return statButtons;
  }
   
-  public void drawCombat(Graphics g, boolean hover){ //drawing the button in the combat section
-    if (hover){ //if being hovered
+  public void drawCombat(Graphics g, boolean hover){ // drawing the button in the combat section
+    if (hover){ // if being hovered
       g.setColor(Color.WHITE);
       g.fillRect(x - 5, y - 5, width + 10, height + 10);
     }
@@ -48,8 +48,8 @@ class Button{
     }
   }
 
- public void drawStat(Graphics g, int i, boolean hover, PlayerCombat playerCom){ //drawing the button in the pause menu
-	 if (hover){ //if being hovered
+ public void drawStat(Graphics g, int i, boolean hover, PlayerCombat playerCom){ // drawing the button in the pause menu
+	 if (hover){ // if being hovered
       g.setColor(Color.WHITE);
       g.fillRect(x - 5, y - 5, width + 10, height + 10);
     }

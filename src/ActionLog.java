@@ -1,6 +1,6 @@
 import java.awt.*;
 
-//class for the action log (actions performed in battle) using a queue structure (copied from code given by Mr. McKenzie)
+// class for the action log (actions performed in battle) using a queue structure (copied from code given by Mr. McKenzie)
 class ActionLog{
   private LNode head;
   private LNode tail;
@@ -10,32 +10,32 @@ class ActionLog{
     head = null;
   }
   
-  public void enqueue(String a){ //adds to the back
+  public void enqueue(String a){ // adds to the back
     LNode tmp = new LNode(tail, a, null);
-    if (head == null){ //no elements
+    if (head == null){ // no elements
       head = tmp;
     }
-    else{ //there are elements
-      tail.setNext(tmp); //setting the next of the previous tail
+    else{ // there are elements
+      tail.setNext(tmp); // setting the next of the previous tail
     }
-    tail = tmp; //setting the new tail
+    tail = tmp; // setting the new tail
   }
   
-  public void dequeue(){ //removes from the front
-    if (head.getNext() != null){ //checking if there is more than one element
+  public void dequeue(){ // removes from the front
+    if (head.getNext() != null){ // checking if there is more than one element
       head = head.getNext();
       head.setPrev(null);
     }
-    else{ //only one element
+    else{ // only one element
       head = null;
     }
   }
   
-  public int getLength(){ //returns the length of the action log
+  public int getLength(){ // returns the length of the action log
     LNode tmp = head;
     int len = 0;
     
-    while (tmp != null){ //while tmp is an existing element
+    while (tmp != null){ // while tmp is an existing element
       len ++;
       tmp = tmp.getNext();
     }
@@ -43,12 +43,12 @@ class ActionLog{
     return len;
   }
   
-  public void reset(){ //resets the action log
+  public void reset(){ // resets the action log
     head = null;
     tail = null;
   }
   
-  public void draw(Graphics g){ //drawing the action log
+  public void draw(Graphics g){ // drawing the action log
     LNode tmp = head;
     int i = 0;
 		
@@ -62,7 +62,7 @@ class ActionLog{
   }
 }
 
-//class for the nodes to store where each element is located (copied from code given by Mr. McKenzie)
+// class for the nodes to store where each element is located (copied from code given by Mr. McKenzie)
 class LNode{
   private String action;
   private LNode next;
